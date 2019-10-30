@@ -22,36 +22,19 @@
         <p>
         <p>
         <br>
-             <textarea id="myTextarea" rows="8" cols="45"   required placeholder="Comentarios aquí"> </textarea>
-        <br>
-            
-            <button type="button" onclick="myFunction()" >Comentar</button> <p><br>
-            <label>Comentarios:</label><p>
-            Mi primer comentario
-           
-            <p id="demo"></p>
-                  
-            <script>
-                
-                function myFunction()
-                {
-                    
-                    var x= document.getElementById("myTextarea").value;
-                    document.getElementById("demo").innerHTML =x;
-                    document.getElementById('myTextarea').value = '';
-                
-                
-                }
-            </script>
             
             
-            <script>
-                
-            </script>
-            <label>
-            </label>
-            
-    </div>
+            <hr>
+            <a class="btn btn-default" href="{% url 'add_comment_to_post' pk=post.pk %}">Comentar</a><p>
+            {% for comment in post.comments.all %}
+            <div class="comment">
+            <div class="date">{{ comment.created_date }}</div>
+            <strong>{{ comment.author }}</strong>
+            <p>{{ comment.text|linebreaks }}</p>
+            </div>
+        {% empty %}
+    <p>No comments here yet :(</p>
+    {% endfor %}
 
 
 

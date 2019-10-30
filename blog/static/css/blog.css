@@ -5,7 +5,8 @@
 }
 
 body{
-     background: #F5FFFA;
+     background: blue;
+
 }
 .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
     color: #ffffff;
@@ -53,3 +54,9 @@ h2, h3, h4 {
 .post h2 a, .post h2 a:visited {
     color: #CD5C5C;
 }
+
+.comment {
+    margin: 20px 0px 20px 20px;
+    
+}
+
