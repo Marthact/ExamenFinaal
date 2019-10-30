@@ -23,7 +23,8 @@
                     
         <div class="post">
             <div class="date"> 
-                <p><b>Fecha:{{ post.published_date }}</b></p>
+                <p><b>Fecha:{{ post.published_date }} </b></p>
+               
             </div>
          
             <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }} </a></h2>
@@ -31,9 +32,11 @@
             <p>{{ post.text|linebreaksbr }} </p>
         </div>
                  
-               
+
+      
     {% endfor %}
 {% endblock %}
+                    
 
                 </div>
             </div>

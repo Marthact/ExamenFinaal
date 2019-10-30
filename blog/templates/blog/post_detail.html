@@ -4,13 +4,55 @@
     <div class="post">
         {% if post.published_date %}
             <div class="date">
-                <p><b>Fecha:{{ post.published_date }}</b></p>
+                
+              <!--
+  {{ post.published_date }} -->
             </div>
         {% endif %}
+        <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        
         <h2> {{ post.title }} </h2>
         
         <p><b>Descripcion del Post</b></p>
         <p>{{ post.text|linebreaksbr }}</p>
         
+
+        <form method="post" action="http://127.0.0.1:8000/post/20/"> {% csrf_token %}
+       
+        <p>
+        <p>
+        <br>
+             <textarea id="myTextarea" rows="8" cols="45"   required placeholder="Comentarios aquí"> </textarea>
+        <br>
+            
+            <button type="button" onclick="myFunction()" >Comentar</button> <p><br>
+            <label>Comentarios:</label><p>
+            Mi primer comentario
+           
+            <p id="demo"></p>
+                  
+            <script>
+                
+                function myFunction()
+                {
+                    
+                    var x= document.getElementById("myTextarea").value;
+                    document.getElementById("demo").innerHTML =x;
+                    document.getElementById('myTextarea').value = '';
+                
+                
+                }
+            </script>
+            
+            
+            <script>
+                
+            </script>
+            <label>
+            </label>
+            
     </div>
+
+
+
 {% endblock %}

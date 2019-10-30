@@ -7,18 +7,30 @@
         <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
     </head>
-    <body>
+    <body> <div class="post">
+      
         <div class="page-header">
+            <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
             
-            <h1><a href="/">Agrega un Post </a></h1>
+            <h1><a href="/">Agrega un Post  </a></h1>
+            
         </div>
         <div class="content container">
+         
+            <p><b>Fecha:{{ post.published_date }}</b></p>
+
+           
             <div class="row">
                 <div class="col-md-8">
-                    {% block content %}
+        
+                    {% block content %} 
                     {% endblock %}
+                    
+              
                 </div>
             </div>
         </div>
+         </div>
+        
     </body>
 </html>
