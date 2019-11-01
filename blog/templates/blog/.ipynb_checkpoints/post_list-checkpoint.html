@@ -14,7 +14,7 @@
         <div class="page-header">
      
             <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span><p1>Add Post</p1></a>
-            <h1><a href="/">Estos Son Los Post</a></h1>
+            <center><h1><a href="/">Bienvenido al Blog</a></h1></center>
         </div>
 
         <div class="content container">
@@ -27,13 +27,13 @@
         <div class="post">
             <div class="date"> 
                 <p><b>Fecha:{{ post.published_date }} </b></p>
-                <p><p>Author:{{ post.author }} </b></p>
+                <p><p>Autor:{{ post.author }} </b></p>
                
             </div>
          
                 
             <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }} </a></h2>
-            <p><b>Descripcion del Post</b></p>
+            <p><b>Descripción del Post</b></p>
             <p>{{ post.text|linebreaksbr }} </p>
                 <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.comments.count }}</a>
         </div>

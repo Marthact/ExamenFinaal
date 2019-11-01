@@ -1,5 +1,6 @@
-
+{% load static %}
 {% block content %}
+   <link rel="stylesheet" href="{% static 'css/blog.css' %}">
     <h1>Haz un comentario del post...</h1>
     <form method="POST" class="post-form">{% csrf_token %}
         {{ form.as_p }}
