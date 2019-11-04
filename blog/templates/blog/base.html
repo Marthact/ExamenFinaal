@@ -1,7 +1,8 @@
+
 {% load static %}
 <html>
     <head>
-        <title>Formulario</title>
+        <title>Blog</title>
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
         <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
@@ -10,8 +11,14 @@
     <body> <div class="post">
       
         <div class="page-header">
+            {% if user.is_authenticated %}
             <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
             
+            <p class="top-menu">Bienvenido, {{ user.username }} <small>
+                <br><a href="{% url 'logout' %}">Cerrar Sesión</a></small></p>
+             {% else %}
+            <a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
+             {% endif %}
             <h1><a href="/">Agrega un Post  </a></h1>
             
         </div>
@@ -26,7 +33,7 @@
                     {% block content %} 
                     {% endblock %}
                     
-              
+        
                 </div>
             </div>
         </div>
